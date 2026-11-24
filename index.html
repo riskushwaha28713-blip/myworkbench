@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0f172a" />
   <title>Pro Workbench</title>
-  <!-- Google Fonts for Typography Options -->
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
   <link href="https://googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
@@ -19,13 +18,7 @@
       --text-muted: #94a3b8;
       --accent: #38bdf8;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg-gradient);
@@ -36,8 +29,6 @@
       display: flex;
       flex-direction: column;
     }
-
-    /* Header & Top Controls */
     header {
       background: var(--glass-bg);
       backdrop-filter: blur(16px);
@@ -53,13 +44,6 @@
       gap: 12px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .brand h1 {
       font-size: 1.25rem;
       font-weight: 700;
@@ -67,13 +51,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; }
     button, select {
       background: rgba(255, 255, 255, 0.1);
       color: var(--text-main);
@@ -86,36 +64,15 @@
       transition: all 0.2s ease;
       font-family: inherit;
     }
-
-    button:hover, select:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-1px);
-    }
-
-    button.primary {
-      background: linear-gradient(135deg, #0284c7, #6366f1);
-      border: none;
-      font-weight: 600;
-    }
-
-    button.primary:hover {
-      opacity: 0.9;
-    }
-
-    select option {
-      background: #1e293b;
-      color: #f8fafc;
-    }
-
-    /* Bento Grid Layout */
+    button:hover, select:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+    button.primary { background: linear-gradient(135deg, #0284c7, #6366f1); border: none; font-weight: 600; }
+    select option { background: #1e293b; color: #f8fafc; }
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
       gap: 16px;
       flex: 1;
     }
-
-    /* Note Card */
     .card {
       background: var(--glass-bg);
       backdrop-filter: blur(14px);
@@ -127,161 +84,61 @@
       flex-direction: column;
       gap: 12px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-      transition: border-color 0.3s, background 0.3s;
     }
-
-    /* Card Color Tints */
-    .card[data-tint="blue"] { background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.35); }
-    .card[data-tint="purple"] { background: rgba(192, 132, 252, 0.12); border-color: rgba(192, 132, 252, 0.35); }
-    .card[data-tint="green"] { background: rgba(52, 211, 153, 0.12); border-color: rgba(52, 211, 153, 0.35); }
-    .card[data-tint="amber"] { background: rgba(251, 191, 36, 0.12); border-color: rgba(251, 191, 36, 0.35); }
-    .card[data-tint="rose"] { background: rgba(251, 113, 133, 0.12); border-color: rgba(251, 113, 133, 0.35); }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .card[data-tint="blue"] { background: rgba(56, 189, 248, 0.14); border-color: rgba(56, 189, 248, 0.4); }
+    .card[data-tint="purple"] { background: rgba(192, 132, 252, 0.14); border-color: rgba(192, 132, 252, 0.4); }
+    .card[data-tint="green"] { background: rgba(52, 211, 153, 0.14); border-color: rgba(52, 211, 153, 0.4); }
+    .card[data-tint="amber"] { background: rgba(251, 191, 36, 0.14); border-color: rgba(251, 191, 36, 0.4); }
+    .card[data-tint="rose"] { background: rgba(251, 113, 133, 0.14); border-color: rgba(251, 113, 133, 0.4); }
+    .card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
     .card-title {
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      font-size: 1rem;
-      font-weight: 600;
-      width: 100%;
-      outline: none;
+      background: transparent; border: none; color: var(--text-main);
+      font-size: 1rem; font-weight: 600; width: 100%; outline: none;
     }
-
-    .card-title::placeholder {
-      color: var(--text-muted);
-    }
-
-    .delete-btn {
-      background: rgba(239, 68, 68, 0.15);
-      color: #fca5a5;
-      border: none;
-      padding: 4px 9px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-    }
-
-    .delete-btn:hover {
-      background: rgba(239, 68, 68, 0.35);
-    }
-
-    /* Card Toolbar (Fonts & Colors) */
+    .delete-btn { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: none; padding: 4px 9px; border-radius: 8px; }
     .card-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-
-    .color-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid rgba(255,255,255,0.4);
-      padding: 0;
-    }
-
+    .color-dots { display: flex; gap: 6px; align-items: center; }
+    .dot { width: 18px; height: 18px; border-radius: 50%; cursor: pointer; border: 2px solid rgba(255,255,255,0.4); padding: 0; }
     .dot[data-color="default"] { background: #334155; }
     .dot[data-color="blue"] { background: #38bdf8; }
     .dot[data-color="purple"] { background: #c084fc; }
     .dot[data-color="green"] { background: #34d399; }
     .dot[data-color="amber"] { background: #fbbf24; }
     .dot[data-color="rose"] { background: #fb7185; }
-
-    /* Text Area */
+    input[type="color"] {
+      width: 24px; height: 24px; border: none; border-radius: 6px;
+      background: transparent; cursor: pointer; padding: 0;
+    }
     textarea {
-      width: 100%;
-      min-height: 150px;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 12px;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      resize: vertical;
-      outline: none;
+      width: 100%; min-height: 150px; background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
+      padding: 12px; font-size: 0.95rem; line-height: 1.5; resize: vertical; outline: none;
     }
-
-    textarea:focus {
-      border-color: var(--accent);
-    }
-
-    /* Smart Copy Actions */
-    .copy-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .copy-buttons {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .copy-btn {
-      font-size: 0.75rem;
-      padding: 6px 10px;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .stats {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    /* Toast Notification */
+    textarea:focus { border-color: var(--accent); }
+    .copy-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: space-between; }
+    .copy-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+    .copy-btn { font-size: 0.75rem; padding: 6px 10px; background: rgba(255, 255, 255, 0.12); }
+    .stats { font-size: 0.72rem; color: var(--text-muted); }
     #toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #10b981;
-      color: #064e3b;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-      z-index: 1000;
+      position: fixed; bottom: 24px; right: 24px; background: #10b981; color: #064e3b;
+      font-weight: 600; padding: 10px 18px; border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4); opacity: 0; transform: translateY(20px);
+      transition: all 0.3s ease; pointer-events: none; z-index: 1000;
     }
-
-    #toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #toast.show { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="brand">
-      <h1>⚡ Bento Workbench</h1>
-    </div>
+    <div class="brand"><h1>⚡ Bento Workbench</h1></div>
     <div class="controls">
-      <button class="primary" onclick="addCard()">+ New Card</button>
-      <button onclick="exportAll()">⬇ Export .TXT</button>
-      <select id="bgSelect" onchange="changeBg(this.value)">
+      <button type="button" class="primary" id="newCardBtn">+ New Card</button>
+      <button type="button" id="exportBtn">⬇ Export .TXT</button>
+      <select id="bgSelect">
         <option value="linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%)">Midnight Aurora</option>
         <option value="linear-gradient(135deg, #090d16 0%, #111827 100%)">OLED Stealth</option>
         <option value="linear-gradient(135deg, #064e3b 0%, #0f172a 100%)">Emerald Night</option>
@@ -291,84 +148,99 @@
   </header>
 
   <main class="bento-grid" id="grid"></main>
-
-  <div id="toast">Copied to clipboard!</div>
+  <div id="toast">Copied!</div>
 
   <script>
-    let notes = JSON.parse(localStorage.getItem('bento_workbench_notes')) || [
-      {
-        id: Date.now(),
-        title: 'Quick Scratchpad',
-        text: 'Welcome to your Frosted Glass Workbench! Type anything here, switch fonts or card colors, and use the buttons below to copy in 1 click.',
-        font: "'Inter', sans-serif",
-        tint: 'blue',
-        textColor: '#f8fafc'
+    document.addEventListener('DOMContentLoaded', () => {
+      let notes = JSON.parse(localStorage.getItem('bento_workbench_notes')) || [
+        {
+          id: 1,
+          title: 'Quick Scratchpad',
+          text: 'Welcome to your Frosted Glass Workbench! Type anything here, switch fonts, card colors, or text color, and copy in 1 click.',
+          font: "'Inter', sans-serif",
+          tint: 'blue',
+          textColor: '#f8fafc'
+        }
+      ];
+
+      const grid = document.getElementById('grid');
+      const bgSelect = document.getElementById('bgSelect');
+      const savedBg = localStorage.getItem('bento_workbench_bg');
+
+      if (savedBg) {
+        document.documentElement.style.setProperty('--bg-gradient', savedBg);
+        bgSelect.value = savedBg;
       }
-    ];
 
-    const savedBg = localStorage.getItem('bento_workbench_bg');
-    if (savedBg) {
-      document.documentElement.style.setProperty('--bg-gradient', savedBg);
-      document.getElementById('bgSelect').value = savedBg;
-    }
-
-    function saveNotes() {
-      localStorage.setItem('bento_workbench_notes', JSON.stringify(notes));
-    }
-
-    function changeBg(val) {
-      document.documentElement.style.setProperty('--bg-gradient', val);
-      localStorage.setItem('bento_workbench_bg', val);
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-
-    function addCard() {
-      notes.unshift({
-        id: Date.now(),
-        title: '',
-        text: '',
-        font: "'Inter', sans-serif",
-        tint: 'default',
-        textColor: '#f8fafc'
-      });
-      saveNotes();
-      render();
-    }
-
-    function deleteCard(id) {
-      if (notes.length === 1) {
-        showToast('Keep at least one card!');
-        return;
+      function saveNotes() {
+        localStorage.setItem('bento_workbench_notes', JSON.stringify(notes));
       }
-      notes = notes.filter(n => n.id !== id);
-      saveNotes();
-      render();
-    }
 
-    function updateNote(id, field, value) {
-      const note = notes.find(n => n.id === id);
-      if (note) {
-        note[field] = value;
-        saveNotes();
-        if (field === 'tint' || field === 'font' || field === 'textColor') {
-          render();
-        } else if (field === 'text') {
-          const statEl = document.getElementById(`stat-${id}`);
-          if (statEl) statEl.textContent = getStats(value);
+      function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+
+      function getStats(text) {
+        const chars = text.length;
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        return `${words} words • ${chars} chars`;
+      }
+
+      function copyToClipboard(text, label) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => showToast(label)).catch(() => fallbackCopy(text, label));
+        } else {
+          fallbackCopy(text, label);
         }
       }
-    }
 
-    function getStats(text) {
-      const chars = text.length;
-      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-      return `${words} words • ${chars} chars`;
-    }
+      function fallbackCopy(text, label) {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast(label);
+      }
 
-    function copyText(id, mode) {
+      document.getElementById('newCardBtn').addEventListener('click', () => {
+        notes.unshift({
+          id: Date.now(),
+          title: '',
+          text: '',
+          font: "'Inter', sans-serif",
+          tint: 'default',
+          textColor: '#f8fafc'
+        });
+        saveNotes();
+        render();
+      });
+
+      document.getElementById('exportBtn').addEventListener('click', () => {
+        const content = notes.map(n => `=== ${n.title || 'Untitled'} ===\n${n.text}\n`).join('\n');
+        const blob = new Blob([content], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'workbench-notes.txt';
+        a.click();
+      });
+
+      bgSelect.addEventListener('change', (e) => {
+        document.documentElement.style.setProperty('--bg-gradient', e.target.value);
+        localStorage.setItem('bento_workbench_bg', e.target.value);
+      });
+
+      function render() {
+        grid.innerHTML = '';
+        notes.forEach(note => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.setAttribute('data-tint', note.tint);
+
+          card.innerHTML = `
+            <div class="card-header">
+              <input class="card-title" type="text" placeholder="Card Title..." value="${note.title.replace(/"/g, '&quot;')}" />
