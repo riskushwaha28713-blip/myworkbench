@@ -1,9 +1,12 @@
  <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
 <title>Bento Workbench</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
 <style>
   body { margin:0; padding:16px; font-family:sans-serif; background:linear-gradient(135deg,#0f172a,#1e1b4b,#311042); color:#fff; min-height:100vh; }
   header { background:rgba(255,255,255,0.1); padding:14px 20px; border-radius:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
@@ -34,6 +37,10 @@
 <div id="grid"></div>
 
 <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+
 var notes = JSON.parse(localStorage.getItem('wb_data')) || [
   { title: 'My Note', text: 'Write here and click Copy!', font: 'sans-serif', bg: 'rgba(56,189,248,0.18)', color: '#ffffff' }
 ];
